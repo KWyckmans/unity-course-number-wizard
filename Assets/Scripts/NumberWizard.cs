@@ -31,7 +31,7 @@ public class NumberWizard : MonoBehaviour
 
     public void OnPressHigher()
     {
-        this.min = this.guess + 1;
+        this.min = Mathf.Min(this.guess + 1, this.max);
         Debug.Log("Need to guess higher, new max is " + this.min.ToString());
 
         NextGuess();
@@ -39,7 +39,7 @@ public class NumberWizard : MonoBehaviour
 
     public void OnPressLower()
     {
-        this.max = this.guess - 1;
+        this.max = Mathf.Max(this.guess - 1, this.min);
         Debug.Log("Need to guess lower, new max is " + this.max.ToString());
         NextGuess();
     }
